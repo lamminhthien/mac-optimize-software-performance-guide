@@ -140,7 +140,7 @@ Adoption guidance:
 | 🔴 P0 | Tokens moved out of `~/.zshrc` → `~/.config/shell/secrets.sh` (chmod 600). **Rotation still required** — see §3.1 | Security | ⚠️ Half done |
 | 🟠 P1 | Enable `NODE_COMPILE_CACHE` globally | build 1.04 s → **0.68 s** | ✅ Applied |
 | 🟠 P1 | Adopt pnpm; `fund=false` for npm | 15× warm installs | ✅ Applied |
-| 🟡 P2 | Lazy-load nvm (kept v22.23.1 — Yara repos pin Node 22) | shell **0.45 s → 0.06 s** | ✅ Applied |
+| 🟡 P2 | Lazy-load nvm (kept v22.23.1 — repos pin Node 22) | shell **0.45 s → 0.06 s** | ✅ Applied |
 | 🟡 P2 | Use `node --run` over `npm run` | ~11% task overhead | ✅ Verified working |
 | 🟢 P3 | Trial `tsgo` for editor typecheck | ~4–10× typecheck | Optional — install per project |
 | 🟢 P3 | Remove legacy global `yarn@1.22.22`; keep v22.23.1 (in use by work repos) | Hygiene | ✅ Yarn removed |
