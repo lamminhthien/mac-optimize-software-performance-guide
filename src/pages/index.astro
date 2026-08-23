@@ -1,0 +1,63 @@
+---
+const guides = Object.entries(import.meta.glob('../../*.md', { eager: true }))
+  .map(([path, mod]) => {
+    const slug = path.split('/').pop().replace(/\.md$/, '');
+    return {
+      slug,
+      title: mod.frontmatter?.title ?? slug.replace(/-/g, ' '),
+    };
+  })
+  .sort((a, b) => a.title.localeCompare(b.title));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mac Software Performance Guides</title>
+    <style is:global>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.7;
+        color: #1f2328;
+        background: #fff;
+      }
+      main {
+        max-width: 46rem;
+        margin: 0 auto;
+        padding: 3rem 1.25rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li a {
+        display: block;
+        padding: 0.9rem 1.1rem;
+        border: 1px solid #d0d7de;
+        border-radius: 8px;
+        margin-bottom: 0.6rem;
+        color: #0969da;
+        text-decoration: none;
+      }
+      li a:hover {
+        background: #f6f8fa;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Mac Software Performance Guides</h1>
+      <ul>
+        {guides.map((g) => (
+          <li><a href={`/${g.slug}/`}>{g.title}</a></li>
+        ))}
+      </ul>
+    </main>
+  </body>
+</html>
